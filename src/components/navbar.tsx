@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <div>
       <nav className="bg-[#001835] border-1 border-[#FFD700] rounded-1xl ">
-        <div className="container flex mx-auto items-center py-2 ">
+        <div className="container flex mx-auto items-center py-2 px-20 ">
           <div className="text-2xl flex items-center  font-bold  space-x-2">
             <a href="#">
               <img
@@ -19,7 +19,6 @@ export default function Navbar() {
             <div className=" mr-1 font-custom bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text font-extrabold text-transparent text-center select-auto">
               BlueStone
             </div>
-            
           </div>
           <div className="relative flex-grow px-6 items-center ">
             <input
@@ -85,7 +84,7 @@ export default function Navbar() {
                 href="#"
                 className="text-[#Ffd700] hover:text-[#aca6ab] font-custom text-[1rem]"
               >
-               Recent Viewed
+                Recent Viewed
               </a>
             </div>
           </div>
@@ -141,65 +140,128 @@ export default function Navbar() {
         )}
       </nav>
       <div className="bg-[#edafbc] flex justify-center">
-  <div className="container  items-center p-1">
-  <div className="flex flex-row items-center justify-between ">
-  <div className="flex items-center space-x-2">
-    <a href="#" className="text-[#13103c] hover:text-[#aca6ab] font-custom flex-1 text-center text-[1.25rem]">
-      10+1 Jewellery Plans
-    </a>
-    <img src="/dropdown.svg" alt="Dropdown Icon" className="w-4 h-4" />
-  </div>
-  <div className="flex items-center space-x-2">
-    <a href="#" className="text-[#13103c] hover:text-[#aca6ab] font-custom flex-1 text-center text-[1.25rem]">
-      Watch Jewellery
-    </a>
-    <img src="/dropdown.svg" alt="Dropdown Icon" className="w-4 h-4" />
-  </div>
-  <div className="flex items-center space-x-2">
-    <a href="#" className="text-[#13103c] hover:text-[#aca6ab] font-custom flex-1 text-center text-[1.25rem]">
-      Rings
-    </a>
-    <img src="/dropdown.svg" alt="Dropdown Icon" className="w-4 h-4" />
-  </div>
-  <div className="flex items-center space-x-2">
-    <a href="#" className="text-[#13103c] hover:text-[#aca6ab] font-custom flex-1 text-center text-[1.25rem]">
-      Earings
-    </a>
-    <img src="/dropdown.svg" alt="Dropdown Icon" className="w-4 h-4" />
-  </div>
-  <div className="flex items-center space-x-2">
-    <a href="#" className="text-[#13103c] hover:text-[#aca6ab] font-custom flex-1 text-center text-[1.25rem]">
-      Pendants
-    </a>
-    <img src="/dropdown.svg" alt="Dropdown Icon" className="w-4 h-4" />
-  </div>
-  <div className="flex items-center space-x-2">
-    <a href="#" className="text-[#13103c] hover:text-[#aca6ab] font-custom flex-1 text-center text-[1.25rem]">
-      Solitairies
-    </a>
-    <img src="/dropdown.svg" alt="Dropdown Icon" className="w-4 h-4" />
-  </div>
-  <div className="flex items-center space-x-2">
-    <a href="#" className="text-[#13103c] hover:text-[#aca6ab] font-custom flex-1 text-center text-[1.25rem]">
-      All Jewellery
-    </a>
-    <img src="/dropdown.svg" alt="Dropdown Icon" className="w-4 h-4" />
-  </div>
-  <div className="flex items-center space-x-2">
-    <a href="#" className="text-[#13103c] hover:text-[#aca6ab] font-custom flex-1 text-center text-[1.25rem]">
-      Gifts
-    </a>
-    <img src="/dropdown.svg" alt="Dropdown Icon" className="w-4 h-4" />
-  </div>
-  <div className="flex items-center space-x-2">
-    <a href="#" className="text-[#13103c] hover:text-[#aca6ab] font-custom flex-1 text-center text-[1.25rem]">
-      Gold Coins
-    </a>
-    <img src="/dropdown.svg" alt="Dropdown Icon" className="w-4 h-4" />
-  </div>
-</div>
-  </div>
-</div>
+        <div className="container  items-center py-1 px-40">
+          <div className="flex flex-row items-center justify-between ">
+            <div className="flex items-center space-x-2">
+              <a
+                href="#"
+                className="text-[#13103c] hover:text-[#aca6ab] font-custom flex-1 text-center text-[1.25rem]"
+              >
+                10+1 Jewellery Plans
+              </a>
+              <img
+                src="/dropdown.svg"
+                alt="Dropdown Icon"
+                className="w-4 h-4"
+              />
+            </div>
+            <div className="flex items-center space-x-2">
+              <a
+                href="#"
+                className="text-[#13103c] hover:text-[#aca6ab] font-custom flex-1 text-center text-[1.25rem]"
+              >
+                Watch Jewellery
+              </a>
+              <img
+                src="/dropdown.svg"
+                alt="Dropdown Icon"
+                className="w-4 h-4"
+              />
+            </div>
+            <div className="flex items-center space-x-2">
+              <a
+                href="#"
+                className="text-[#13103c] hover:text-[#aca6ab] font-custom flex-1 text-center text-[1.25rem]"
+              >
+                Rings
+              </a>
+              <img
+                src="/dropdown.svg"
+                alt="Dropdown Icon"
+                className="w-4 h-4"
+              />
+            </div>
+            <div className="flex items-center space-x-2">
+              <a
+                href="#"
+                className="text-[#13103c] hover:text-[#aca6ab] font-custom flex-1 text-center text-[1.25rem]"
+              >
+                Earings
+              </a>
+              <img
+                src="/dropdown.svg"
+                alt="Dropdown Icon"
+                className="w-4 h-4"
+              />
+            </div>
+            <div className="flex items-center space-x-2">
+              <a
+                href="#"
+                className="text-[#13103c] hover:text-[#aca6ab] font-custom flex-1 text-center text-[1.25rem]"
+              >
+                Pendants
+              </a>
+              <img
+                src="/dropdown.svg"
+                alt="Dropdown Icon"
+                className="w-4 h-4"
+              />
+            </div>
+            <div className="flex items-center space-x-2">
+              <a
+                href="#"
+                className="text-[#13103c] hover:text-[#aca6ab] font-custom flex-1 text-center text-[1.25rem]"
+              >
+                Solitairies
+              </a>
+              <img
+                src="/dropdown.svg"
+                alt="Dropdown Icon"
+                className="w-4 h-4"
+              />
+            </div>
+            <div className="flex items-center space-x-2">
+              <a
+                href="#"
+                className="text-[#13103c] hover:text-[#aca6ab] font-custom flex-1 text-center text-[1.25rem]"
+              >
+                All Jewellery
+              </a>
+              <img
+                src="/dropdown.svg"
+                alt="Dropdown Icon"
+                className="w-4 h-4"
+              />
+            </div>
+            <div className="flex items-center space-x-2">
+              <a
+                href="#"
+                className="text-[#13103c] hover:text-[#aca6ab] font-custom flex-1 text-center text-[1.25rem]"
+              >
+                Gifts
+              </a>
+              <img
+                src="/dropdown.svg"
+                alt="Dropdown Icon"
+                className="w-4 h-4"
+              />
+            </div>
+            <div className="flex items-center space-x-2">
+              <a
+                href="#"
+                className="text-[#13103c] hover:text-[#aca6ab] font-custom flex-1 text-center text-[1.25rem]"
+              >
+                Gold Coins
+              </a>
+              <img
+                src="/dropdown.svg"
+                alt="Dropdown Icon"
+                className="w-4 h-4"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
