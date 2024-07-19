@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "MyCustomFont";
+    font-style: normal;
+    font-weight: normal;
+    /* font-display: swap; */
+    src: url("/src/assets/fonts/PlayfairDisplay-VariableFont_wght.ttf")
+      format("trueType");
+  }
+  @property --border-angle {
+    inherits: false;
+    initial-value: 0deg;
+    syntax: '<angle>';
+}
+}

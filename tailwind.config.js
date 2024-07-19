@@ -1,12 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}"
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        border: "border 4s linear infinite",
+      },
+      keyframes: {
+        border: {
+          to: { "--border-angle": "360deg" },
+        },
+      },
+      fontFamily: {
+        custom: ["MyCustomFont", "sans-serif"],
+      },
+    },
   },
   plugins: [],
-}
-
+};

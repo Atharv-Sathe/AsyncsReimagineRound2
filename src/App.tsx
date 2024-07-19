@@ -1,11 +1,11 @@
+import Navbar from "./components/navbar";
 
 function App() {
-
   return (
     <>
-      <h1 className=" text-amber-500">Muft ka chandan ghis mere nadan!</h1>
+      <Navbar />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
