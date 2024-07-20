@@ -16,29 +16,32 @@ export default function Section1() {
       scrollTrigger: {
         trigger: containerRef.current!,
         pin: true,
-        markers: true,
+        markers: false,
         anticipatePin: 1,
         start: "top top",
         end: "bottom top",
         scrub: true,
       },
     });
-    tl.to(videoRef.current!, {
-      width: "100%",
-      ease: "power2.out",
+    tl.from(videoRef.current!, {
+      width: "80%",
+      ease: "power2.in",
       onStart: () => {
         videoRef.current!.play();
       },
-      onReverseComplete: () => {
+      onComplete: () => {
         videoRef.current!.pause();
       },
+      onReverseComplete: () => {
+        videoRef.current!.play();
+      }
     });
   });
 
   return (
     <div
       ref={containerRef}
-      className="flex p-2 relative h-screen justify-center items-center"
+      className="flex p-2 relative h-screen justify-center items-center bg-[url('/bluebg.svg')] bg-center "
     >
       <video
         ref={videoRef}
