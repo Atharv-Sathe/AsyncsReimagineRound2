@@ -7,6 +7,7 @@ function App() {
     <>
       <Navbar />
       <Section1 />
+      <div className="h-screen bg-red-300"></div>
       {/* <Preloader /> */}
     </>
   );
