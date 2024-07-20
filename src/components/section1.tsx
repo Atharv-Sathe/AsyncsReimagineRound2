@@ -1,10 +1,9 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { Observer } from "gsap/Observer";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 
-gsap.registerPlugin(useGSAP, ScrollTrigger, Observer);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Section1() {
   const videoRef = useRef<HTMLVideoElement>(null);
