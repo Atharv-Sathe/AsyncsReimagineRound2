@@ -15,5 +15,10 @@
     inherits: false;
     initial-value: 0deg;
     syntax: '<angle>';
+
 }
+body {
+  cursor: url('/cursor4.svg'), auto;
+}
+
 }

@@ -1,72 +1,79 @@
-import { useEffect } from 'react';
-import * as THREE from 'three';
-import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import { Suspense,useRef, useMemo } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Environment, useGLTF,OrbitControls,Points,PointMaterial } from "@react-three/drei";
+import * as THREE from "three";
+import { useLoader } from "@react-three/fiber";
+type PointsRef = THREE.Points<THREE.BufferGeometry, THREE.PointsMaterial>;
+
+function Model() {
+  const { scene } = useGLTF("/blue2.glb");
+
+  // Optional: Scale and rotate the model
+  scene.scale.set(1, 1, 1);
+  scene.rotation.set(0, Math.PI, 0);
+
+  useFrame(() => {
+    scene.rotation.y += 0.01; // Rotate the model
+  });
+
+  return <primitive object={scene} />;
+}
+
+function Particles() {
+  const pointsRef = useRef<PointsRef>(null!);
+  const texture = useLoader(THREE.TextureLoader, '/pinkdi.png');
+
+  const count = 1000;
+  const particles = useMemo(() => {
+    const positions = new Float32Array(count * 3);
+    for (let i = 0; i < count * 3; i++) {
+      positions[i] = (Math.random() - 0.5) * 10;
+    }
+    return positions;
+  }, [count]);
+
+  useFrame(() => {
+    if (pointsRef.current) {
+      pointsRef.current.rotation.y += 0.0001; // Rotate the particles
+    }
+  });
+
+  return (
+    <Points ref={pointsRef} positions={particles} stride={3} frustumCulled={false}>
+      <PointMaterial transparent  map={texture} size={0.05} sizeAttenuation={true} depthWrite={false} />
+    </Points>
+  );
+}
 
 export default function Preloader() {
-    useEffect(() => {
-        // Set up the scene
-        const scene = new THREE.Scene();
-
-        // Set up the camera
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.z = 5;
-
-        // Set up the renderer
-        const canvas = document.getElementById('c') as HTMLCanvasElement;
-        const renderer = new THREE.WebGLRenderer({
-            canvas,
-            antialias: true,
-            alpha: true // Use alpha for transparency
-        });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-
-        // Load a 3D model
-        const loader = new GLTFLoader();
-        loader.load('/blueDiamond.glb', (gltf) => {
-            scene.add(gltf.scene);
-            gltf.scene.position.set(0, 0, 0);
-
-            // Optional: Scale and rotate the model
-            gltf.scene.scale.set(1, 1, 1);
-            gltf.scene.rotation.set(0, Math.PI, 0);
-        }, undefined, (error) => {
-            console.error('An error occurred while loading the model:', error);
-        });
-
-        // Add a light source
-        const light = new THREE.PointLight(0xffffff, 1, 100);
-        light.position.set(10, 10, 10);
-        scene.add(light);
-
-        // Animation loop
-        const animate = function () {
-            requestAnimationFrame(animate);
-
-            // Rotate the model
-            scene.rotation.y += 0.01;
-
-            // Render the scene
-            renderer.render(scene, camera);
-        };
-
-        animate();
-
-        // Handle window resize
-        const handleResize = () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        };
-        window.addEventListener('resize', handleResize);
-
-        // Clean up on component unmount
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-    return (
-        <div className='flex bg-[#edafbc]'>
-            <canvas id="c" className="bg-[url('/victorian.svg')]  bg-center bg-no-repeat"></canvas>
-        </div>
-    );
+  return (
+    <div className="flex h-screen items-center justify-center">
+        {/* <div>
+            <h1 className="text-4xl font-bold text-center mt-20">Loading...</h1>
+        </div> */}
+         <div
+        className="absolute"
+        style={{
+          top: '65%', // Adjust as needed
+          left: '50%', // Center horizontally
+          transform: 'translate(-50%, -50%)', // Center vertically
+          pointerEvents: 'none', // Ensure it doesn’t interfere with interactions
+          zIndex: 1 // Ensure it’s behind the Canvas
+        }}
+      >
+        <img src="/blueText.svg" alt="Text Background" style={{ width: '300px' }} />
+      </div>
+      <Canvas
+        className="h-full w-full bg-[url('/victorian.svg')]  bg-center bg-no-repeat "
+      >
+        <Suspense fallback={null}>
+          <Particles />
+          <Model />
+          <ambientLight intensity={1.5} />
+          <Environment preset="sunset" />
+          <OrbitControls autoRotate autoRotateSpeed={1} />
+        </Suspense>
+      </Canvas>
+    </div>
+  );
 }
