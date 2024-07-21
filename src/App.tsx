@@ -3,7 +3,7 @@ import Section0 from "./components/section0";
 import Preloader from "./components/preloader";
 // import Section1 from "./components/section1";
 import Section2 from "./components/section2";
-import Section3 from "./components/section3";
+// import Section3 from "./components/section3";
 import Showcase from "./components/showcase";
 import { useEffect, useState } from "react";
 import ReactLenis from "lenis/react";
@@ -29,7 +29,7 @@ function App() {
           <Slider />
           <Section2 />
           <Showcase />
-          <Section3 />
+          {/* <Section3 /> */}
         </ReactLenis>
       )}
     </>
