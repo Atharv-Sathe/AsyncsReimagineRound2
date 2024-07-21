@@ -24,10 +24,11 @@ export default function Slider({ className }: { className?: string }) {
     <Swiper
       spaceBetween={30}
       centeredSlides={true}
-      autoplay={{
-        delay: 10000,
-        disableOnInteraction: false,
-      }}
+      // autoplay={{
+      //   delay: 10000,
+      //   disableOnInteraction: false,
+      // }}
+      loop={true}
       pagination={{
         clickable: true,
       }}
@@ -66,12 +67,6 @@ export default function Slider({ className }: { className?: string }) {
           Your browser does not support the video tag.
         </video>
       </SwiperSlide>
-      <div className="autoplay-progress" slot="container-end">
-        <svg viewBox="0 0 48 48" ref={progressCircle}>
-          <circle cx="24" cy="24" r="20"></circle>
-        </svg>
-        <span ref={progressContent}></span>
-      </div>
     </Swiper>
   );
 }
