@@ -29,6 +29,15 @@ function Model({ position }: { position: [number, number, number] }) {
   return <primitive object={scene} />;
 }
 
+const Skybox = () => {
+  return (
+    <Environment
+      files="/kloppenheim_06_puresky_1k.hdr"
+      background // Set this to true to use the HDR map as the background
+    />
+  );
+};
+
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Showcase() {
@@ -44,7 +53,7 @@ export default function Showcase() {
         markers: false,
         anticipatePin: 1,
         start: "top top",
-        end: "bottom top",
+        end: "bottom+=500 top",
         scrub: true,
         onEnter: () => {
           const tl = gsap.timeline();
@@ -60,64 +69,57 @@ export default function Showcase() {
           tl.to(lowerShed.current!, { yPercent: 0, duration: 2 }, "<");
           tl.to(upperShed.current!, { height: "50%", duration: 2 }, "<");
         },
-        // onLeave: () => {
-        //   const tl = gsap.timeline();
-        //   tl.to(upperShed.current!, { yPercent: 0, duration: 2 });
-        //   tl.to(lowerShed.current!, { height: "50%", duration: 2 }, "<");
-        //   tl.to(lowerShed.current!, { yPercent: 0, duration: 2 }, "<");
-        //   tl.to(upperShed.current!, { height: "50%", duration: 2 }, "<");
-        // }
       },
     });
   });
 
+  const modelSpacing = 4; // Space between models
+  const canvas = true;
   return (
     <div ref={containerRef} className="relative">
       <div
         ref={upperShed}
-        className="absolute z-10 h-[50vh] w-screen bg-red-300 top-0 overflow-hidden"
+        className=" absolute z-10 h-[50vh] w-screen bg-red-300 top-0 overflow-hidden"
       >
+        {" "}
         <div className="absolute flex justify-center items-center w-full bottom-[-40px] text-6xl">
           <img src="/blueText.svg" />
         </div>
       </div>
       <div
         ref={lowerShed}
-        className="absolute z-10 h-[50vh] w-screen bg-red-300 bottom-0 overflow-hidden"
+        className=" absolute z-10 h-[50vh] w-screen bg-red-300 bottom-0 overflow-hidden"
       >
+        {" "}
         <div className="absolute flex justify-center items-center w-full top-[-40px] text-center text-6xl">
           <img src="/blueText.svg" />
         </div>
       </div>
       <div className="flex h-screen items-center">
-        <Canvas
-          camera={{ position: [0, 0, 10] }} // Adjusted camera position to fit all models
-          onCreated={({ gl, scene }) => {
-            gl.toneMapping = THREE.ACESFilmicToneMapping;
-            gl.toneMappingExposure = 0.4; // Adjust this value to reduce exposure
-            const loader = new THREE.TextureLoader();
-            const texture = loader.load(
-              "/lulu.jpg",
-              () => {
-                texture.mapping = THREE.EquirectangularReflectionMapping;
-                texture.colorSpace = THREE.SRGBColorSpace;
-                scene.background = texture;
-              }
-            );
-          }}
-        >
-          <Suspense fallback={null}>
-            <Model position={[0, 0, 0]} /> {/* Center the single model */}
-            <ambientLight intensity={0.2} /> {/* Reduced intensity */}
-            <Environment preset="studio" />
-            <directionalLight
-              position={[10, 10, 10]}
-              intensity={0.2} // Reduced intensity
-              castShadow
-            />
-            <OrbitControls />
-          </Suspense>
-        </Canvas>
+        {canvas && (
+          <Canvas
+            camera={{ position: [0, 0, 10] }} // Adjusted camera position to fit all models
+            onCreated={({ gl }) => {
+              gl.toneMapping = THREE.ACESFilmicToneMapping;
+              gl.toneMappingExposure = 0.4; // Adjust this value to reduce exposure
+            }}
+          >
+            <Suspense fallback={null}>
+              <Skybox />
+              {/* Render three models side by side */}
+              <Model position={[-modelSpacing, 0, 0]} />
+              <Model position={[0, 0, 0]} />
+              <Model position={[modelSpacing, 0, 0]} />
+              <ambientLight intensity={0.2} /> {/* Reduced intensity */}
+              <directionalLight
+                position={[10, 10, 10]}
+                intensity={0.2} // Reduced intensity
+                castShadow
+              />
+              <OrbitControls />
+            </Suspense>
+          </Canvas>
+        )}
       </div>
     </div>
   );
