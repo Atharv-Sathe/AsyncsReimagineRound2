@@ -1,13 +1,12 @@
 import Navbar from "./components/navbar";
 import Section0 from "./components/section0";
 import Preloader from "./components/preloader";
-import Section1 from "./components/section1";
+// import Section1 from "./components/section1";
 import Section2 from "./components/section2";
 import Section3 from "./components/section3";
 import Showcase from "./components/showcase";
 import { useEffect, useState } from "react";
 import ReactLenis from "lenis/react";
-import Carousel from "./components/carouseluse";
 import Slider from "./components/videoCarousel";
 
 function App() {
@@ -26,11 +25,11 @@ function App() {
         <ReactLenis root>
           <Navbar />
           <Section0 />
-          <Section1 />
+          {/* <Section1 /> */}
+          <Slider />
           <Section2 />
           <Showcase />
           <Section3 />
-          <Carousel/>
         </ReactLenis>
       )}
     </>

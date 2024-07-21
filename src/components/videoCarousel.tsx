@@ -1,72 +1,90 @@
-import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { cn } from "../cn";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Slider({ className }: { className?: string }) {
-  const progressCircle = useRef<SVGSVGElement>(null);
-  const progressContent = useRef<HTMLSpanElement>(null);
+  const swiperRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const onAutoplayTimeLeft = (s: unknown, time: number, progress: number) => {
-    if (progressCircle.current) {
-      progressCircle.current.style.setProperty("--progress", `${1 - progress}`);
-    }
-    if (progressContent.current) {
-      progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
-    }
-  };
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current!,
+        pin: true,
+        anticipatePin: 1,
+        start: "top top",
+        end: "bottom+=500 top",
+        scrub: true,
+      },
+    });
+
+    tl.fromTo(
+      swiperRef.current!,
+      {
+        padding: 250,
+      },
+      { padding: 500 }
+    );
+  });
 
   return (
-    <Swiper
-      spaceBetween={30}
-      centeredSlides={true}
-      // autoplay={{
-      //   delay: 10000,
-      //   disableOnInteraction: false,
-      // }}
-      loop={true}
-      pagination={{
-        clickable: true,
-      }}
-      navigation={true}
-      modules={[Autoplay, Pagination, Navigation]}
-      onAutoplayTimeLeft={onAutoplayTimeLeft}
-      className={cn("Swiper rounded-lg", className)}
+    <div
+      ref={containerRef}
+      className="flex items-center justify-center h-screen w-screen gradient-background"
     >
-      <SwiperSlide className="swiper-slide flex justify-center items-center">
-        <video className="w-full h-full object-cover " muted loop>
-          <source src="/bluestone.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </SwiperSlide>
-      <SwiperSlide className="swiper-slide flex justify-center items-center">
-        <video className="w-full h-full object-cover " muted loop>
-          <source src="/bluestone.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </SwiperSlide>
-      <SwiperSlide className="swiper-slide flex justify-center items-center">
-        <video className="w-full h-full object-cover " muted loop>
-          <source src="/bluestone.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </SwiperSlide>
-      <SwiperSlide className="swiper-slide flex justify-center items-center">
-        <video className="w-full h-full object-cover " muted loop>
-          <source src="/bluestone.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </SwiperSlide>
-      <SwiperSlide className="swiper-slide flex justify-center items-center">
-        <video className="w-full h-full object-cover " muted loop>
-          <source src="/bluestone.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </SwiperSlide>
-    </Swiper>
+      <Swiper
+        ref={swiperRef}
+        spaceBetween={30}
+        centeredSlides={true}
+        loop={true}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Navigation]}
+        className={cn("rounded-lg p-[100px]", className)}
+      >
+        <SwiperSlide className="swiper-slide flex justify-center items-center">
+          <video className="w-full h-full object-cover " autoPlay muted loop>
+            <source src="/bluestone.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </SwiperSlide>
+        <SwiperSlide className="swiper-slide flex justify-center items-center">
+          <video className="w-full h-full object-cover " autoPlay muted loop>
+            <source src="/bluestone.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </SwiperSlide>
+        <SwiperSlide className="swiper-slide flex justify-center items-center">
+          <video className="w-full h-full object-cover " autoPlay muted loop>
+            <source src="/bluestone.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </SwiperSlide>
+        <SwiperSlide className="swiper-slide flex justify-center items-center">
+          <video className="w-full h-full object-cover " autoPlay muted loop>
+            <source src="/bluestone.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </SwiperSlide>
+        <SwiperSlide className="swiper-slide flex justify-center items-center">
+          <video className="w-full h-full object-cover " muted loop>
+            <source src="/bluestone.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </SwiperSlide>
+      </Swiper>
+    </div>
   );
 }
