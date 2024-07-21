@@ -13,10 +13,13 @@
     "@gsap/react": "^2.1.1",
     "@react-three/drei": "^9.108.4",
     "@react-three/fiber": "^8.16.8",
+    "clsx": "^2.1.1",
     "gsap": "^3.12.5",
+    "lenis": "^1.1.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "swiper": "^11.1.5",
+    "tailwind-merge": "^2.4.0",
     "three": "^0.166.1",
     "three-stdlib": "^2.30.4"
   },

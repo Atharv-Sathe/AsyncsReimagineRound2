@@ -15,7 +15,7 @@ export default function Section1() {
       scrollTrigger: {
         trigger: containerRef.current!,
         pin: true,
-        markers: true,
+        markers: false,
         anticipatePin: 1,
         start: "top top",
         end: "bottom top",

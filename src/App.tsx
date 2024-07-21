@@ -6,6 +6,7 @@ import Section2 from "./components/section2";
 import Section3 from "./components/section3";
 import Showcase from "./components/showcase";
 import { useEffect, useState } from "react";
+import ReactLenis from "lenis/react";
 
 function App() {
   const [isLoading, SetIsLoading] = useState(true);
@@ -20,14 +21,14 @@ function App() {
       {isLoading ? (
         <Preloader />
       ) : (
-        <>
+        <ReactLenis root>
           <Navbar />
           <Section0 />
           <Section1 />
           <Section2 />
           <Showcase />
           <Section3 />
-        </>
+        </ReactLenis>
       )}
     </>
   );
