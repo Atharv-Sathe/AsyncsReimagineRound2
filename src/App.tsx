@@ -8,7 +8,6 @@ import Showcase from "./components/showcase";
 import { useEffect, useState } from "react";
 import ReactLenis from "lenis/react";
 import Carousel from "./components/carouseluse";
-import Slider from "./components/videoCarousel";
 
 function App() {
   const [isLoading, SetIsLoading] = useState(true);
@@ -30,7 +29,7 @@ function App() {
           <Section2 />
           <Showcase />
           <Section3 />
-          <Carousel/>
+          <Carousel />
         </ReactLenis>
       )}
     </>
