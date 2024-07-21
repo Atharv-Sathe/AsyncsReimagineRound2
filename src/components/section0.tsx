@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function Section0() {
   return (
     <div className='flex flex-col'>

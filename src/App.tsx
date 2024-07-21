@@ -6,6 +6,7 @@ import Section2 from "./components/section2";
 import Section3 from "./components/section3";
 import Showcase from "./components/showcase";
 import { useEffect, useState } from "react";
+import ReactLenis from "lenis/react";
 import Carousel from "./components/carouseluse";
 import Slider from "./components/videoCarousel";
 
@@ -22,7 +23,7 @@ function App() {
       {isLoading ? (
         <Preloader />
       ) : (
-        <>
+        <ReactLenis root>
           <Navbar />
           <Section0 />
           <Section1 />
@@ -30,7 +31,7 @@ function App() {
           <Showcase />
           <Section3 />
           <Carousel/>
-        </>
+        </ReactLenis>
       )}
     </>
   );
