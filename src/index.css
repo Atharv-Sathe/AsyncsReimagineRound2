@@ -15,10 +15,56 @@
     inherits: false;
     initial-value: 0deg;
     syntax: '<angle>';
+  }
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 50% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 
 }
 body {
   cursor: url('/cursor4.svg'), auto;
+
+ 
+  
+  .gradient-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(270deg, #f6a3c3dc, #f6a3c3dc, #fb8db7dc, #fb69a1dc, #f42575dc,#f66ca0dc,#f6a3c3dc);
+    background-size: 1400% 1400%;
+    animation: gradientAnimation 20s ease-in-out infinite;
+    z-index: -1; /* Ensure it's behind the video */
+    border-radius: inherit;
+  }
 }
 
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+.custom-swiper .swiper-cube-shadow {
+  background: rgba(212, 52, 164, 0.5); /* Change to your desired shadow color */
+}
+
+.custom-swiper .swiper-slide-shadow-left,
+.custom-swiper .swiper-slide-shadow-right,
+.custom-swiper .swiper-slide-shadow-top,
+.custom-swiper .swiper-slide-shadow-bottom {
+  background: rgba(245, 195, 130, 0.4); /* Change to your desired shadow color */
 }
