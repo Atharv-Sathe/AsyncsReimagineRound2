@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <div>
       <nav className="bg-[#001835] border-1 border-[#FFD700] rounded-1xl ">
-        <div className="container flex mx-auto items-center py-2 px-20 ">
+        <div className="container flex mx-auto items-center py-2  ">
           <div className="text-2xl flex items-center  font-bold  space-x-2">
             <a href="#">
               <img
@@ -140,7 +140,7 @@ export default function Navbar() {
         )}
       </nav>
       <div className="bg-[#edafbc] flex justify-center">
-        <div className="container  items-center py-1 px-40">
+        <div className="container  items-center py-1 ">
           <div className="flex flex-row items-center justify-between ">
             <div className="flex items-center space-x-2">
               <a
