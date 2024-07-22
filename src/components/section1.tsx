@@ -20,6 +20,12 @@ export default function Section1() {
         start: "top top",
         end: "bottom top",
         scrub: true,
+        onEnterBack: () => {
+          videoRef.current!.play();
+        },
+        onLeaveBack: () => {
+          videoRef.current!.pause();
+        },
       },
     });
     tl.from(videoRef.current!, {
@@ -33,18 +39,22 @@ export default function Section1() {
       },
       onReverseComplete: () => {
         videoRef.current!.play();
-      }
+        // setNextVideo(true);
+      },
     });
   });
 
   return (
     <div
       ref={containerRef}
-      className="flex p-2 relative h-screen justify-center items-center bg-[url('/bluebg.svg')] bg-center "
+      className="flex p-2 relative h-screen justify-center items-center bg-[url('/back2.svg')] bg-center "
     >
+      {/* <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div> */}
+      <div className="absolute inset-0 gradient-background rounded-2xl"></div>
+
       <video
         ref={videoRef}
-        className="h-auto border-2px w-[80vh] object-cover rounded-2xl"
+        className="h-auto border-2px w-[60vw] object-cover rounded-2xl"
         muted
         loop
       >

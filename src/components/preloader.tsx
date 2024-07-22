@@ -70,7 +70,7 @@ export default function Preloader() {
           <Particles />
           <Model />
           <ambientLight intensity={1.5} />
-          <Environment preset="sunset" />
+          <Environment preset="studio" />
           <OrbitControls autoRotate autoRotateSpeed={1} />
         </Suspense>
       </Canvas>
