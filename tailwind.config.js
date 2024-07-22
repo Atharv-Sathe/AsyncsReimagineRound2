@@ -10,6 +10,9 @@ export default {
       'sm': {'max': '639px'}, // => @media (max-width: 639px) { ... }
     },
     extend: {
+      colors: {
+        "royal-gold": "#F5BD02"
+      },
       animation: {
         border: "border 4s linear infinite",
       },
