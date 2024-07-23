@@ -117,7 +117,7 @@ function Footer() {
             </div>
         </div>
         <div>
-            <div className='2xl:hidden md:flex md:flex-row md:justify-evenly'>
+            <div className='hidden  md:flex md:flex-row md:justify-evenly'>
                 <div className='flex flex-col gap-4'>
                     {footerContent.slice(0, 2).map((content, index) => {
                         return <FooterContent key={index} title={content.title} content={content.content} />
