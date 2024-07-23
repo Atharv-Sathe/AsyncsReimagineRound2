@@ -41,7 +41,13 @@ function App() {
           <Footer />
         </ReactLenis>
       )}
-
+=========
+      <Navbar />
+      <Section1 />
+      <div className="h-screen bg-red-300"></div>
+      {/* <Preloader /> */}
+      <Footer />
+>>>>>>>>> Temporary merge branch 2
     </>
   );
 }
