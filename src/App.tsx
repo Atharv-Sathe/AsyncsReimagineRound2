@@ -1,3 +1,4 @@
+import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import Section0 from "./components/section0";
 import Preloader from "./components/preloader";
@@ -37,6 +38,7 @@ function App() {
           {/* <ImageCarousel /> */}
           <Section4 />
           <Section5 />
+          <Footer />
         </ReactLenis>
       )}
     </>
