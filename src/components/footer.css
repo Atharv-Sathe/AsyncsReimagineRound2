@@ -74,3 +74,129 @@
 }
 
 
+.fab {
+  margin: auto;
+}
+
+.social {
+  color: #FFF;
+  transition: all 0.35s;
+  transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
+}
+
+.social:hover {
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+  transition: all ease 0.5s;
+  -moz-transition: all ease-in 0.5s;
+  -webkit-transition: all ease-in 0.5s;
+  -o-transition: all ease-in 0.5s;
+}
+
+.facebook {
+  color:#4267B2;
+}
+
+.twitter {
+  color:#1DA1F2;
+}
+
+.youtube {
+  color:#c4302b;
+}
+
+.pinterest {
+  color:#c8232c;
+}
+
+.instagram {
+  color: transparent;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.bg-ico {
+  display: flex;
+  background-color: #000;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: 0 5px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 28%;
+  box-shadow: 0 5px 15px -5px rgba(0,0,0,0.1);
+  opacity: 0.99;
+  -webkit-transition: background-color 2s ease-out;
+  -moz-transition: background-color 2s ease-out;
+  -o-transition: background-color 2s ease-out;
+  transition: background-color 2s ease-out;  
+}
+.bg-ico:hover{
+  box-shadow: 0 5px 15px -5px rgba(0,0,0,0.8);
+}
+
+#facebook:hover {
+  background-color: #4267B2;
+}
+
+#twitter:hover {
+  background-color: #1DA1F2;
+}
+
+#youtube:hover {
+  background-color: #c4302b;
+}
+
+#pinterest:hover {
+  background-color:#c8232c;
+}
+
+#instagram:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.facebook:hover, 
+.twitter:hover, 
+.youtube:hover, 
+.pinterest:hover,
+.instagram:hover {
+  color:#fff;
+  transform: scale(1.2);
+}   
+
+#animate-link {
+  text-decoration: none;
+  text-decoration-color: none;
+  color: white;
+  position: relative;
+}
+#animate-link::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #FEFEFE;
+  transform: scale(1,1);
+  transition: background-color .5s ease-in-out;
+  bottom: 0px;
+}
+#animate-link:hover::before {
+  animation: link ease 1s 1 300ms;
+  transform-origin: right;  
+  background-color:#FFD700;
+}
+@keyframes link {
+  50%{
+    transform: scaleX(0);
+  }
+  50.1% {
+    transform: translateX(-100%) scalex( -0.01);   
+  }
+  100% {
+    transform: translateX(-100%) scalex(-1);
+  }
+}
