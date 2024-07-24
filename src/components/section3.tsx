@@ -9,14 +9,13 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 export default function ImageCarousel() {
   const dragRef = useRef<HTMLDivElement>(null);
   const spinRef = useRef<HTMLDivElement>(null);
-  const groundRef = useRef<HTMLDivElement>(null);
 
   const radius = 240; // how big of the radius
   const autoRotate = true; // auto rotate or not
   const rotateSpeed = -60; // unit: seconds/360 degrees
 
   useGSAP(() => {
-    const images = gsap.utils.toArray("img"); // image elements
+    const images = gsap.utils.toArray("#spin-container img"); // image elements
     // useEffect(() => {
     gsap.set(images, {
       transform: (image) =>
@@ -36,7 +35,7 @@ export default function ImageCarousel() {
   }, [radius, autoRotate, rotateSpeed]);
 
   return (
-    <div className="relative top-28 left-56">
+    <div className="py-40 w-screen">
       <div ref={dragRef} id="drag-container">
         <div ref={spinRef} className="h-[170px] w-[120px]" id="spin-container">
           <img
@@ -65,7 +64,6 @@ export default function ImageCarousel() {
           />
           <p>3D Tiktok Carousel</p>
         </div>
-        <div ref={groundRef} className="h-[720px] w-[720px]" id="ground"></div>
       </div>
     </div>
   );
