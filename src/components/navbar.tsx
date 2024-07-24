@@ -139,7 +139,7 @@ export default function Navbar() {
           </div>
         )}
       </nav>
-      <div className="bg-[#edafbc] flex justify-center">
+      <div className="bg-[#edafbc] flex justify-center w-screen overflow-hidden">
         <div className="container  items-center py-1 ">
           <div className="flex flex-row items-center justify-between ">
             <div className="flex items-center space-x-2">
