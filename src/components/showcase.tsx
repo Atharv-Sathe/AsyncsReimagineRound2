@@ -5,7 +5,7 @@ import * as THREE from "three";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
+import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
 
 // Define the Model component
 function Model({ position }: { position: [number, number, number] }) {
@@ -90,7 +90,7 @@ export default function Showcase() {
             gl.toneMapping = THREE.ACESFilmicToneMapping;
             gl.toneMappingExposure = 0.4; // Adjust this value to reduce exposure
             const loader = new RGBELoader();
-            loader.load("/museum.hdr", (texture) => {
+            loader.load("/museum.hdr", (texture: THREE.Texture) => {
               texture.mapping = THREE.EquirectangularReflectionMapping;
               scene.background = texture;
               scene.environment = texture;
