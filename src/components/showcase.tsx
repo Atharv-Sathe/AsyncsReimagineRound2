@@ -66,7 +66,7 @@ export default function Showcase() {
   });
 
   return (
-    <div ref={containerRef} className="relative">
+    <div ref={containerRef} className="relative md:hidden">
       <div
         ref={upperShed}
         className="absolute z-10 h-[50vh] w-screen bg-red-300 top-0 overflow-hidden"
