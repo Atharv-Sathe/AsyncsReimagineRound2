@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useState } from "react";
 import Swiper1 from "./swiper";
 
 export default function Section2() {

@@ -1,13 +1,11 @@
 import { useState } from "react";
 
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
 
   return (
     <div>
@@ -18,7 +16,6 @@ export default function Navbar() {
               <img src="/logo.png" className="w-12 md:w-8 lg:w-16" alt="Logo" />
             </a>
             <div className="ml-2 font-bold text-2xl font-custom bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
-            <div className="ml-2 font-bold text-2xl font-custom bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
               BlueStone
             </div>
           </div>
@@ -27,9 +24,7 @@ export default function Navbar() {
               type="text"
               placeholder="Search..."
               className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <div className="absolute inset-y-0 right-4 flex items-center space-x-3">
             <div className="absolute inset-y-0 right-4 flex items-center space-x-3">
               <img src="/voice.svg" alt="Voice Icon" className="w-5 h-5" />
               <img src="/search2.svg" alt="Search Icon 2" className="w-5 h-5" />
@@ -59,22 +54,7 @@ export default function Navbar() {
             <button
               onClick={toggleMenu}
               className="text-gray-700 hover:text-gray-900 focus:outline-none opacity-35"
-              className="text-gray-700 hover:text-gray-900 focus:outline-none opacity-35"
             >
-            <svg
-  xmlns="http://www.w3.org/2000/svg"
-  className="h-6 w-6"
-  fill="#FFD700"
-  viewBox="0 0 24 24"
-  stroke="#FFD700"
->
-  <path
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    strokeWidth="2"
-    d="M4 6h16M4 12h16M4 18h16"
-  />
-</svg>
             <svg
   xmlns="http://www.w3.org/2000/svg"
   className="h-6 w-6"
@@ -123,15 +103,11 @@ export default function Navbar() {
               <a
                 href="#"
                 className="text-[#13103c] hover:text-[#aca6ab] font-custom text-center text-[1.25rem]"
-                className="text-[#13103c] hover:text-[#aca6ab] font-custom text-center text-[1.25rem]"
               >
-                {item}
                 {item}
               </a>
               <img src="/dropdown.svg" alt="Dropdown Icon" className="w-4 h-4" />
-              <img src="/dropdown.svg" alt="Dropdown Icon" className="w-4 h-4" />
             </div>
-          ))}
           ))}
         </div>
       </div>
