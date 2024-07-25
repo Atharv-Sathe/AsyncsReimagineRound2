@@ -10,16 +10,16 @@ export default function Navbar() {
   return (
     <div>
       <nav className="bg-[#001835] border-1 border-[#FFD700] rounded-1xl">
-        <div className="container flex justify-between items-center mx-auto py-2 px-4 md:px-6">
+        <div className="container flex justify-between items-center mx-auto py-2 px-6 md:px-4">
           <div className="flex items-center">
             <a href="#">
-              <img src="/logo.png" className="w-8 md:w-12 lg:w-16" alt="Logo" />
+              <img src="/logo.png" className="w-12 md:w-8 lg:w-16" alt="Logo" />
             </a>
             <div className="ml-2 font-bold text-2xl font-custom bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
               BlueStone
             </div>
           </div>
-          <div className="relative flex-grow hidden md:flex items-center px-4">
+          <div className="relative flex-grow flex md:hidden items-center px-4">
             <input
               type="text"
               placeholder="Search..."
@@ -31,7 +31,7 @@ export default function Navbar() {
               <img src="/search.svg" alt="Search Icon" className="w-5 h-5" />
             </div>
           </div>
-          <div className="hidden md:flex space-x-6 items-center">
+          <div className="md:hidden flex space-x-6 items-center">
             {["Diamond", "Wish", "Store", "Jewellery", "Recent"].map(
               (item, index) => (
                 <div key={index} className="flex flex-col items-center">
@@ -50,7 +50,7 @@ export default function Navbar() {
               )
             )}
           </div>
-          <div className="md:hidden">
+          <div className="hidden md:block">
             <button
               onClick={toggleMenu}
               className="text-gray-700 hover:text-gray-900 focus:outline-none opacity-35"
@@ -73,7 +73,7 @@ export default function Navbar() {
           </div>
         </div>
         {isOpen && (
-          <div className="md:hidden bg-white border-t border-gray-200">
+          <div className="hidden md:block bg-white border-t border-gray-200">
             {["Home", "About", "Services", "Contact"].map((item, index) => (
               <a
                 key={index}
@@ -86,7 +86,7 @@ export default function Navbar() {
           </div>
         )}
       </nav>
-      <div className="hidden md:flex bg-[#edafbc] justify-center">
+      <div className="md:hidden flex bg-[#edafbc] justify-center">
         <div className="container flex flex-wrap items-center py-1 space-x-4 justify-center">
           {[
             "10+1 Jewellery Plans",

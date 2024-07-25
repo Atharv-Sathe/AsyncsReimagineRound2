@@ -18,7 +18,6 @@ export default function Section5() {
         end: "+=300% bottom",
         scrub: true,
         pin: true,
-        markers: true,
       },
     });
 
