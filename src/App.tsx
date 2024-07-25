@@ -36,7 +36,7 @@ function App() {
           <Slider />
           <Section2 />
           <Showcase />
-          <ImageCarousel />
+          {/* <ImageCarousel /> */}
           <Section4 />
           <Section5 />
           <News />
