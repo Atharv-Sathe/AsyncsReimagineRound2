@@ -193,7 +193,6 @@ export default function Section5() {
         trigger: triggerRef.current,
         start: "top 80%",
         end: "bottom 20%",
-      
       },
       x: (index) => (index % 2 === 0 ? -200 : 200),
       opacity: 0,
