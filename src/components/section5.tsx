@@ -15,7 +15,7 @@ export default function Section5() {
       scrollTrigger: {
         trigger: triggerRef.current,
         start: "top top",
-        end: "+=300% bottom",
+        end: "+=200% bottom",
         scrub: true,
         pin: true,
       
@@ -28,7 +28,7 @@ export default function Section5() {
         translateX: "50vw",
       },
       {
-        translateX: "-135vw",
+        translateX: "-30vw",
         ease: "none",
         duration: 1,
       }
@@ -37,10 +37,10 @@ export default function Section5() {
     tl.fromTo(
       triggerRef.current,
       {
-        backgroundColor: "#f4c5ab",
+        backgroundColor: "#f43f5e",
       },
       {
-        backgroundColor: "#00f",
+        backgroundColor: "#fda4af",
         duration: 0.5,
       },
       "<"
@@ -49,7 +49,7 @@ export default function Section5() {
     tl.to(
       triggerRef.current,
       {
-        backgroundColor: "#0f0",
+        backgroundColor: "#ffe4e6",
         duration: 0.5,
       },
       0.5
@@ -98,32 +98,26 @@ export default function Section5() {
   ];
 
   return (
-    <div>
-      <div ref={triggerRef}>
-        <div
-          ref={sectionRef}
-          className="relative flex flex-row h-screen w-screen"
-        >
-          {cardData.map((card, index) => (
-            <div
-              key={index}
-              className="card absolute top-[20vh] transform"
-              style={{
-                left: `${index * 30 + 5}vw`,
-                transform: `rotate(${index % 2 === 0 ? "12deg" : "-12deg"})`,
-                zIndex: -1,
-                width: "300px",
-              }}
-            >
-              <Card {...card} />
-            </div>
-          ))}
-          <div className="flex flex-row h-[100vh] w-[100vw] justify-center items-center">
-            <h2 className="text-[20vw] text-[#f4c5aa] text-nowrap mix-blend-overlay opacity-55">
-              Customer Testimonials
-            </h2>
+    <div ref={triggerRef}>
+      <h1 className="text-4xl text-center pt-4 font-custom">Customer Testimonials 🌟</h1>
+      <div
+        ref={sectionRef}
+        className="relative flex flex-row h-[70vh] w-screen"
+      >
+        {cardData.map((card, index) => (
+          <div
+            key={index}
+            className="card absolute transform top-12"
+            style={{
+              left: `${index * 30 + 5}vw`,
+              transform: `rotate(${index % 2 === 0 ? "12deg" : "-12deg"})`,
+              zIndex: -1,
+              width: "300px",
+            }}
+          >
+            <Card {...card} />
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );
