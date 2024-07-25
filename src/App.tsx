@@ -14,6 +14,7 @@ import Section4 from "./components/section4";
 // import Showcase1 from "./components/showcase1";
 import Showcase from "./components/showcase";
 import Section5 from "./components/section5";
+import News from "./components/news";
 
 function App() {
   const [isLoading, SetIsLoading] = useState(true);
@@ -38,6 +39,7 @@ function App() {
           {/* <ImageCarousel /> */}
           <Section4 />
           <Section5 />
+          <News />
           <Footer />
         </ReactLenis>
       )}
