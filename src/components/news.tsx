@@ -1,32 +1,32 @@
-// import gsap from 'gsap';
-// import ScrollTrigger from 'gsap/ScrollTrigger';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 // import { useGSAP } from '@gsap/react';
-// import { useEffect } from 'react'; 
+import { useEffect } from 'react'; 
 
-// const useGSAP = (selector: string, stagger = 0.1) => { // Add type annotation for the selector parameter
-//     useEffect(() => {
-//       gsap.registerPlugin(ScrollTrigger);
+const useGSAP = (selector: string, stagger = 0.1) => { // Add type annotation for the selector parameter
+    useEffect(() => {
+      gsap.registerPlugin(ScrollTrigger);
   
-//     const elements: Element[] = gsap.utils.toArray(selector);
+    const elements: Element[] = gsap.utils.toArray(selector);
   
-//       gsap.set(elements, { y: 100, opacity: 0 });
+      gsap.set(elements, { y: 100, opacity: 0 });
   
-//       ScrollTrigger.batch(elements, {
-//         onEnter: (batch) => gsap.to(batch, {
-//           y: 0,
-//           opacity: 1,
-//           stagger,
-//           overwrite: true,
-//           scrollTrigger: {
-//             trigger: batch[0],
-//             start: 'top center+=100',
-//             end: 'bottom center',
-//             scrub: true
-//           }
-//         })
-//       });
-//     }, [selector, stagger]);
-//   };
+      ScrollTrigger.batch(elements, {
+        onEnter: (batch) => gsap.to(batch, {
+          y: 0,
+          opacity: 1,
+          stagger,
+          overwrite: true,
+          scrollTrigger: {
+            trigger: batch[0],
+            start: 'top center+=100',
+            end: 'bottom center',
+            scrub: true
+          }
+        })
+      });
+    }, [selector, stagger]);
+  };
 
 
 const magazines = [
@@ -74,7 +74,7 @@ function Magazine({id, p, img, link} : {id: string, p: string, img: string, link
 }
 
 function News() {
-    // useGSAP("#magazine", 0.2);
+    useGSAP("#magazine", 0.2);
 
     // useGSAP(() => {
     //     const tl1 = gsap.timeline();
