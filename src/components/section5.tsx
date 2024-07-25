@@ -25,7 +25,7 @@ export default function Section5() {
     tl.fromTo(
       sectionRef.current,
       {
-        translateX: "70vw",
+        translateX: "50vw",
       },
       {
         translateX: "-30vw",
