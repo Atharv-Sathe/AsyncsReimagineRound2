@@ -25,10 +25,10 @@ export default function Section5() {
     tl.fromTo(
       sectionRef.current,
       {
-        translateX: "50vw",
+        translateX: "70vw",
       },
       {
-        translateX: "-135vw",
+        translateX: "-85vw",
         ease: "none",
         duration: 1,
       }
@@ -37,10 +37,10 @@ export default function Section5() {
     tl.fromTo(
       triggerRef.current,
       {
-        backgroundColor: "#f4c5ab",
+        backgroundColor: "#C0C0C0",
       },
       {
-        backgroundColor: "#00f",
+        backgroundColor: "#FFD700",
         duration: 0.5,
       },
       "<"
@@ -49,7 +49,7 @@ export default function Section5() {
     tl.to(
       triggerRef.current,
       {
-        backgroundColor: "#0f0",
+        backgroundColor: "#B87333",
         duration: 0.5,
       },
       0.5
@@ -102,14 +102,14 @@ export default function Section5() {
       <div ref={triggerRef}>
         <div
           ref={sectionRef}
-          className="relative flex flex-row h-screen w-screen"
+          className="relative flex flex-row h-screen w-screen md:hidden"
         >
           {cardData.map((card, index) => (
             <div
               key={index}
               className="card absolute top-[20vh] transform"
               style={{
-                left: `${index * 30 + 5}vw`,
+                left: `${index * 40 - 15}vw`,
                 transform: `rotate(${index % 2 === 0 ? "12deg" : "-12deg"})`,
                 zIndex: -1,
                 width: "300px",
@@ -119,7 +119,7 @@ export default function Section5() {
             </div>
           ))}
           <div className="flex flex-row h-[100vh] w-[100vw] justify-center items-center">
-            <h2 className="text-[20vw] text-[#f4c5aa] text-nowrap mix-blend-overlay opacity-55">
+            <h2 className="text-[20vw] text-[#e8ec17] font-custom text-nowrap mix-blend-overlay opacity-75">
               Customer Testimonials
             </h2>
           </div>

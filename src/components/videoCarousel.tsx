@@ -40,7 +40,7 @@ export default function Slider({ className }: { className?: string }) {
   return (
     <div
       ref={containerRef}
-      className="flex items-center justify-center h-screen w-screen gradient-background"
+      className="md:hidden flex items-center justify-center h-screen w-screen gradient-background"
     >
       <Swiper
         ref={swiperRef}
