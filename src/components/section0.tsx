@@ -1,6 +1,6 @@
 export default function Section0() {
   return (
-    <div className="relative h-[85vh] items-center justify-center">
+    <div className=" relative h-[85vh] md:h-[33vh] items-center justify-center">
       {/* Text overlay */}
       <div className="absolute left-0 right-0 mt-[15%]  font-custom flex flex-col items-center  z-10 ">
         <div>
@@ -14,7 +14,7 @@ export default function Section0() {
       <img
         src="./images/art-collection.webp"
         alt="pinkdi"
-        className="absolute object-cover left-0 right-0 ml-auto mr-auto w-[100vw] -z-10 opacity-80"
+        className="absolute object-contain left-0 right-0 ml-auto mr-auto w-[100vw] -z-10 opacity-80"
       />
     </div>
   );
