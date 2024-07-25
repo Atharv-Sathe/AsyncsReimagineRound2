@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import ReactLenis from "lenis/react";
 import Slider from "./components/videoCarousel";
 import Section4 from "./components/section4";
-import ImageCarousel from "./components/section3";
+// import ImageCarousel from "./components/section3";
 // import Showcase1 from "./components/showcase1";
 import Showcase from "./components/showcase";
 import Section5 from "./components/section5";
