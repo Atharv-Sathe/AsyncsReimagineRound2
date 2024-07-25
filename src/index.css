@@ -35,7 +35,7 @@ body {
  
   
   .gradient-background {
-    background: linear-gradient(270deg, #f6a3c3dc, #f6a3c3dc, #fb8db7dc, #fb69a1dc, #f42575dc,#f66ca0dc,#f6a3c3dc);
+    background: linear-gradient(270deg, #8d9ff7dc, #7297fddc, #dffb82dc, #effa59dc, #fd5fe5dc,#f295b8dc,#f22473dc);
     background-size: 1400% 1400%;
     animation: gradientAnimation 20s ease-in-out infinite;
     border-radius: inherit;
