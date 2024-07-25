@@ -229,7 +229,7 @@ export default function Section5() {
   ];
 
   return (
-    <div ref={triggerRef}>
+    <div ref={triggerRef} className="md:hidden">
       <h1 className="text-4xl text-center pt-4 font-custom">Customer Testimonials 🌟</h1>
       <div
         ref={sectionRef}
