@@ -36,7 +36,7 @@ export default function Swiper1({
         }}
         pagination={true}
         modules={[Autoplay,EffectCube, Pagination]}
-        className={cn("w-[300px] h-[300px] custom-swiper", className)}
+        className={cn("w-[300px] h-[300px] custom-swiper overflow-hidden", className)}
       >
         {images.map((image) => (
           <SwiperSlide>

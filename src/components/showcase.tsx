@@ -5,6 +5,7 @@ import * as THREE from "three";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
 
 // Define the Model component
 function Model({ position }: { position: [number, number, number] }) {
@@ -60,19 +61,12 @@ export default function Showcase() {
           tl.to(lowerShed.current!, { yPercent: 0, duration: 2 }, "<");
           tl.to(upperShed.current!, { height: "50%", duration: 2 }, "<");
         },
-        // onLeave: () => {
-        //   const tl = gsap.timeline();
-        //   tl.to(upperShed.current!, { yPercent: 0, duration: 2 });
-        //   tl.to(lowerShed.current!, { height: "50%", duration: 2 }, "<");
-        //   tl.to(lowerShed.current!, { yPercent: 0, duration: 2 }, "<");
-        //   tl.to(upperShed.current!, { height: "50%", duration: 2 }, "<");
-        // }
       },
     });
   });
 
   return (
-    <div ref={containerRef} className="relative">
+    <div ref={containerRef} className="relative md:hidden">
       <div
         ref={upperShed}
         className="absolute z-10 h-[50vh] w-screen bg-red-300 top-0 overflow-hidden"
@@ -95,15 +89,12 @@ export default function Showcase() {
           onCreated={({ gl, scene }) => {
             gl.toneMapping = THREE.ACESFilmicToneMapping;
             gl.toneMappingExposure = 0.4; // Adjust this value to reduce exposure
-            const loader = new THREE.TextureLoader();
-            const texture = loader.load(
-              "/lulu.jpg",
-              () => {
-                texture.mapping = THREE.EquirectangularReflectionMapping;
-                texture.colorSpace = THREE.SRGBColorSpace;
-                scene.background = texture;
-              }
-            );
+            const loader = new RGBELoader();
+            loader.load("/museum.hdr", (texture: THREE.Texture) => {
+              texture.mapping = THREE.EquirectangularReflectionMapping;
+              scene.background = texture;
+              scene.environment = texture;
+            });
           }}
         >
           <Suspense fallback={null}>
