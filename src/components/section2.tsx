@@ -9,7 +9,7 @@ export default function Section2() {
   };
 
   return (
-    <div className="flex flex-col relative justify-center items-center py-10 gap-20 h-screen md:h-auto">
+    <div className="flex flex-col relative items-center py-10 gap-20 h-[80vh]">
       <video
         src={videoSrc}
         className="absolute w-full h-full object-cover -z-10 opacity-80"
