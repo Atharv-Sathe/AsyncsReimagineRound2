@@ -26,8 +26,8 @@ jobs:
         run: |
           if [ "${{ env.EMAIL }}" != "some@email.com" ]; then
             echo "Email does not match. Performing dummy commit."
-            git config user.name "AthSat"
-            git config user.email "110881105+Atharv-Sathe@users.noreply.github.com"
+            git config user.name "TheBug"
+            git config user.email "atharvsathe28704@gmail.com"
             echo "Dummy commit at $(date)" > dummyfile.txt
             git add dummyfile.txt
             git commit -m "Dummy commit to deploy"
