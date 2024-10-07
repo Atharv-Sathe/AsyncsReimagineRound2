@@ -1,9 +1,7 @@
 name: Dummy commit if someone else than Atharv
 
 on:
-  push:
-    branches:
-      - main
+  push
 
 jobs:
   enforce-email:
